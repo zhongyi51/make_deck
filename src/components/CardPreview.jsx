@@ -26,7 +26,7 @@ const CardPreview = ({ cardData, cardRef }) => {
 
   return (
     <div className="card-container" ref={cardRef}>
-      <div className="card-frame">
+      <div className="card-frame" style={getBgStyle()}>
         <div className="card-header">
           <div className="card-cost">
             <span className="cost-number">{cost}</span>
@@ -34,7 +34,7 @@ const CardPreview = ({ cardData, cardRef }) => {
           <div className="card-title">{title}</div>
         </div>
         
-        <div className="card-image-section" style={getBgStyle()}>
+        <div className="card-image-section">
           <div className="card-emoji">{emoji}</div>
         </div>
         
