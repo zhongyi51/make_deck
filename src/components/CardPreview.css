@@ -1,5 +1,7 @@
 .card-container {
   perspective: 1000px;
+  padding: 40px; 
+  background-color: transparent; 
 }
 
 .card-frame {
@@ -95,7 +97,6 @@
   font-size: 100px;
   line-height: 1;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  animation: float 3s ease-in-out infinite;
   white-space: nowrap;
 }
 
