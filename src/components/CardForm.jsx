@@ -110,9 +110,43 @@ const CardForm = ({ cardData, onCardDataChange }) => {
           name="bgColor"
           label={
             <Text strong>
-              🎨 底色 RGB
+              🎨 卡面底色 RGB
               <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
-                (卡图区域的背景色，如 42, 42, 78)
+                (整个卡面底部背景，如 15, 15, 30)
+              </Text>
+            </Text>
+          }
+        >
+          <Input 
+            placeholder="例如: 15, 15, 30" 
+            style={{ width: 200 }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          name="headerBgColor"
+          label={
+            <Text strong>
+              🎨 标题背景色 RGB
+              <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
+                (标题栏的背景色，如 255, 215, 0)
+              </Text>
+            </Text>
+          }
+        >
+          <Input 
+            placeholder="例如: 255, 215, 0" 
+            style={{ width: 200 }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          name="imageBgColor"
+          label={
+            <Text strong>
+              🎨 卡图背景色 RGB
+              <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
+                (emoji 区域的背景色，如 42, 42, 78)
               </Text>
             </Text>
           }
