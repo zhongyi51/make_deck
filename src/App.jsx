@@ -14,7 +14,9 @@ const initialCardData = {
   cost: '3',
   description: '## 效果说明\n\n从场上、墓地以及除外的自己融合召唤1只「龙」融合怪兽。\n\n**注意：** 此卡只能在中国官方店使用。',
   emoji: '🐉',
-  bgColor: ''
+  bgColor: '',
+  headerBgColor: '',
+  imageBgColor: ''
 }
 
 function App() {
