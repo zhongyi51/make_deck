@@ -60,9 +60,11 @@ function App() {
     if (cardRef.current) {
       try {
         const canvas = await html2canvas(cardRef.current, {
-          backgroundColor: null,
+          backgroundColor: '#00000000',
           scale: 3,
           useCORS: true,
+          logging: false,
+          foreignObjectRendering: false,
         })
         const url = canvas.toDataURL('image/png')
         const link = document.createElement('a')
