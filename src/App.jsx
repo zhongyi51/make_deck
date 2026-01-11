@@ -60,7 +60,7 @@ function App() {
     if (cardRef.current) {
       try {
         const canvas = await html2canvas(cardRef.current, {
-          backgroundColor: '#00000000',
+          backgroundColor: null,
           scale: 3,
           useCORS: true,
           logging: false,
