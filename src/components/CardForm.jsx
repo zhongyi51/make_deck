@@ -107,6 +107,23 @@ const CardForm = ({ cardData, onCardDataChange }) => {
         </Form.Item>
 
         <Form.Item
+          name="costBgColor"
+          label={
+            <Text strong>
+              🎨 费用背景色 RGB
+              <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
+                (费用圆圈背景色，如 65, 105, 225)
+              </Text>
+            </Text>
+          }
+        >
+          <Input 
+            placeholder="例如: 65, 105, 225" 
+            style={{ width: 200 }}
+          />
+        </Form.Item>
+
+        <Form.Item
           name="bgColor"
           label={
             <Text strong>

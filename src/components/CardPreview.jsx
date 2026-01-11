@@ -6,7 +6,7 @@ import './CardPreview.css'
 const { Text } = Typography
 
 const CardPreview = ({ cardData, cardRef }) => {
-  const { title, cost, description, emoji, bgColor, headerBgColor, imageBgColor } = cardData
+  const { title, cost, description, emoji, bgColor, headerBgColor, imageBgColor, costBgColor } = cardData
 
   const parseMarkdown = (text) => {
     if (!text) return ''
@@ -38,6 +38,14 @@ const CardPreview = ({ cardData, cardRef }) => {
     return {}
   }
 
+  const getCostStyle = () => {
+    const rgb = parseRgb(costBgColor)
+    if (rgb) {
+      return { background: rgb }
+    }
+    return {}
+  }
+
   const getImageStyle = () => {
     const rgb = parseRgb(imageBgColor)
     if (rgb) {
@@ -50,7 +58,7 @@ const CardPreview = ({ cardData, cardRef }) => {
     <div className="card-container" ref={cardRef}>
       <div className="card-frame" style={getBgStyle(bgColor)}>
         <div className="card-header" style={getHeaderStyle()}>
-          <div className="card-cost">
+          <div className="card-cost" style={getCostStyle()}>
             <span className="cost-number">{cost}</span>
           </div>
           <div className="card-title">{title}</div>

@@ -16,7 +16,8 @@ const initialCardData = {
   emoji: '🐉',
   bgColor: '',
   headerBgColor: '',
-  imageBgColor: ''
+  imageBgColor: '',
+  costBgColor: ''
 }
 
 function App() {
