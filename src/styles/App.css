@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 48px;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+  border-radius: 6px;
+}
+
+.site-page-header {
+  background: #f0f5ff;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .site-layout-content {
+    padding: 16px;
+  }
+}
