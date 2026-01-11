@@ -11,9 +11,10 @@ const { Title } = Typography
 
 const initialCardData = {
   title: '龙之融合',
-  cost: 3,
+  cost: '3',
   description: '## 效果说明\n\n从场上、墓地以及除外的自己融合召唤1只「龙」融合怪兽。\n\n**注意：** 此卡只能在中国官方店使用。',
-  emoji: '🐉'
+  emoji: '🐉',
+  bgColor: ''
 }
 
 function App() {

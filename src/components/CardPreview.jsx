@@ -6,11 +6,22 @@ import './CardPreview.css'
 const { Text } = Typography
 
 const CardPreview = ({ cardData, cardRef }) => {
-  const { title, cost, description, emoji } = cardData
+  const { title, cost, description, emoji, bgColor } = cardData
 
   const parseMarkdown = (text) => {
     if (!text) return ''
     return marked(text)
+  }
+
+  const getBgStyle = () => {
+    if (!bgColor) return {}
+    const rgbMatch = bgColor.match(/^(\d+)\s*,\s*(\d+)\s*,\s*(\d+)$/)
+    if (rgbMatch) {
+      return {
+        background: `rgb(${rgbMatch[1]}, ${rgbMatch[2]}, ${rgbMatch[3]})`
+      }
+    }
+    return {}
   }
 
   return (
@@ -23,7 +34,7 @@ const CardPreview = ({ cardData, cardRef }) => {
           <div className="card-title">{title}</div>
         </div>
         
-        <div className="card-image-section">
+        <div className="card-image-section" style={getBgStyle()}>
           <div className="card-emoji">{emoji}</div>
         </div>
         

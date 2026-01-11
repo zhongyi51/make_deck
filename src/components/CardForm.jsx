@@ -94,16 +94,31 @@ const CardForm = ({ cardData, onCardDataChange }) => {
             <Text strong>
               💎 费用
               <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
-                (填写使用此卡所需的费用)
+                (填写使用此卡所需的费用，可填数字或 X)
               </Text>
             </Text>
           }
           rules={[{ required: true, message: '请输入费用!' }]}
         >
-          <InputNumber 
-            min={0} 
-            max={99} 
-            placeholder="0-99"
+          <Input 
+            placeholder="例如: 0-99 或 X" 
+            style={{ width: 200 }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          name="bgColor"
+          label={
+            <Text strong>
+              🎨 底色 RGB
+              <Text type="secondary" style={{ marginLeft: 8, fontSize: 12 }}>
+                (卡图区域的背景色，如 42, 42, 78)
+              </Text>
+            </Text>
+          }
+        >
+          <Input 
+            placeholder="例如: 42, 42, 78" 
             style={{ width: 200 }}
           />
         </Form.Item>
