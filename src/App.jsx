@@ -23,6 +23,7 @@ const initialCardData = {
 function App() {
   const [cardData, setCardData] = useState(initialCardData)
   const cardRef = useRef(null)
+  const formRef = useRef(null)
 
   const handleCardDataChange = (newData) => {
     setCardData(newData)
@@ -46,7 +47,11 @@ function App() {
       reader.onload = (e) => {
         try {
           const data = JSON.parse(e.target.result)
-          setCardData({ ...initialCardData, ...data })
+          const mergedData = { ...initialCardData, ...data }
+          setCardData(mergedData)
+          if (formRef.current) {
+            formRef.current.setFieldsValue(mergedData)
+          }
           message.success('导入成功!')
         } catch (error) {
           message.error('导入失败，请检查文件格式!')
@@ -119,7 +124,7 @@ function App() {
       </Header>
       <Content style={{ padding: '24px' }}>
         <Flex gap={48} wrap="wrap" justify="center" align="flex-start">
-          <CardForm cardData={cardData} onCardDataChange={handleCardDataChange} />
+          <CardForm ref={formRef} cardData={cardData} onCardDataChange={handleCardDataChange} />
           <CardPreview cardData={cardData} cardRef={cardRef} />
         </Flex>
       </Content>

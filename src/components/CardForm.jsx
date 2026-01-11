@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, forwardRef, useImperativeHandle } from 'react'
 import { Form, InputNumber, Input, Button, Space, Divider, Typography, message } from 'antd'
 import { CopyOutlined, ClearOutlined } from '@ant-design/icons'
 import './CardForm.css'
@@ -6,8 +6,13 @@ import './CardForm.css'
 const { TextArea } = Input
 const { Text } = Typography
 
-const CardForm = ({ cardData, onCardDataChange }) => {
+const CardForm = forwardRef(({ cardData, onCardDataChange }, ref) => {
   const [form] = Form.useForm()
+
+  useImperativeHandle(ref, () => ({
+    setFieldsValue: (values) => form.setFieldsValue(values),
+    resetFields: () => form.resetFields()
+  }))
 
   const handleValuesChange = (changedValues, allValues) => {
     onCardDataChange(allValues)
@@ -17,9 +22,13 @@ const CardForm = ({ cardData, onCardDataChange }) => {
     form.resetFields()
     onCardDataChange({
       title: '',
-      cost: 1,
+      cost: '',
       description: '',
-      emoji: ''
+      emoji: '',
+      bgColor: '',
+      headerBgColor: '',
+      imageBgColor: '',
+      costBgColor: ''
     })
     message.success('已重置表单')
   }
@@ -217,6 +226,6 @@ const CardForm = ({ cardData, onCardDataChange }) => {
       </div>
     </div>
   )
-}
+})
 
 export default CardForm
